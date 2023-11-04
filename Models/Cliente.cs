@@ -8,8 +8,14 @@ namespace GDVTsmV3.Models
     {
         [Key]
         public int Id_Cliente { get; set; }
+
         [ForeignKey("Persona")]
         public int Id_Persona { get; set; }
+        public Persona Persona { get; set; }
+
+        [ForeignKey("Empleado")]
+        public int Empleado_Id { get; set; }
+        public Empleado Empleado { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime FechaHora_de_registro { get; set; }

@@ -7,11 +7,14 @@ namespace GDVTsmV3.Models
     {
         [Key] 
         public int Empleado_Id { get; set; }
+
         [ForeignKey("Persona")]
         public int? Persona_Id { get; set; }
         public Persona Persona { get; set; }
+
         [ForeignKey("Usuario")]
         public int? Usuario_Id {  get; set; }
         public Usuario Usuario { get; set; }
+
     }
 }
