@@ -1,45 +1,51 @@
-﻿@model GDVTsmV3.Models.Usuario
+﻿@page
+@model GDVTsmV3.Views.Usuarios.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    Layout = null;
 }
 
-<h1>Edit</h1>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
 
 <h4>Usuario</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Usuario_Id" />
+            <input type="hidden" asp-for="Usuario.Usuario_Id" />
             <div class="form-group">
-                <label asp-for="Nombre_Usuario" class="control-label"> Nombre Usuario</label>
-                <input asp-for="Nombre_Usuario" class="form-control" />
-                <span asp-validation-for="Nombre_Usuario" class="text-danger"></span>
+                <label asp-for="Usuario.Nombre_Usuario" class="control-label"></label>
+                <input asp-for="Usuario.Nombre_Usuario" class="form-control" />
+                <span asp-validation-for="Usuario.Nombre_Usuario" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Correo_Electronico" class="control-label">Correo Electronico</label>
-                <input asp-for="Correo_Electronico" class="form-control" />
-                <span asp-validation-for="Correo_Electronico" class="text-danger"></span>
+                <label asp-for="Usuario.Correo_Electronico" class="control-label"></label>
+                <input asp-for="Usuario.Correo_Electronico" class="form-control" />
+                <span asp-validation-for="Usuario.Correo_Electronico" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Contrasena" class="control-label">Contraseña</label>
-                <input asp-for="Contrasena" class="form-control" />
-                <span asp-validation-for="Contrasena" class="text-danger"></span>
+                <label asp-for="Usuario.Contrasena" class="control-label"></label>
+                <input asp-for="Usuario.Contrasena" class="form-control" />
+                <span asp-validation-for="Usuario.Contrasena" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Guardar" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
-<br />
-<div class="btn btn-warning text-white">
-    <a asp-action="Index" style="text-decoration:none">Volver a la Lista </a>
+<div>
+    <a asp-page="./Index">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+</body>
+</html>

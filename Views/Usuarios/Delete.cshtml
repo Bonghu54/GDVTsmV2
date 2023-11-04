@@ -1,39 +1,49 @@
-﻿@model GDVTsmV3.Models.Usuario
+﻿@page
+@model GDVTsmV3.Views.Usuarios.DeleteModel
 
 @{
-    ViewData["Title"] = "Delete";
+    Layout = null;
 }
 
-<h1>Delete</h1>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Usuario</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre_Usuario)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Usuario.Nombre_Usuario)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nombre_Usuario)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Usuario.Nombre_Usuario)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Correo_Electronico)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Usuario.Correo_Electronico)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Correo_Electronico)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Usuario.Correo_Electronico)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Contrasena)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Usuario.Contrasena)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Contrasena)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Usuario.Contrasena)
         </dd>
     </dl>
     
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Usuario_Id" />
+    <form method="post">
+        <input type="hidden" asp-for="Usuario.Usuario_Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <a asp-page="./Index">Back to List</a>
     </form>
 </div>
+</body>
+</html>

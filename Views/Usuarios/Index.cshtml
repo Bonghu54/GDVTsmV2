@@ -1,45 +1,56 @@
-﻿@model IEnumerable<GDVTsmV3.Models.Usuario>
+﻿@page
+@model GDVTsmV3.Views.Usuarios.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    Layout = null;
 }
 
-<div class="row">
-    <div class="col-4">
-        <h3>Lista Usuarios</h3>
-    </div>
-    <div class="col-3">
-        <a asp-action="Create" class="btn btn-primary form-control">Crear Usuario</a>
-    </div>
-</div>
-<div>
-    @if (Model.Count() > 0)
-    {
-        <table class="table table-striped border">
-            <tr>
-                <th>Nombre de Usuario</th>
-                <th>Correo Electronico</th>
-                <th>Contraseña</th>
-                <th></th>
-            </tr>
-            @foreach (var rol in Model)
-            {
-                <tr>
-                    <td>@rol.Nombre_Usuario </td>
-                    <td>@rol.Correo_Electronico</td>
-                    <td>@rol.Contrasena</td>
-                    <td>
-                        <a class="btn btn-primary text-white" asp-action="Edit" asp-route-id="@rol.Usuario_Id">Editar</a>
-                        <a class="btn btn-warning text-white" asp-action="AdministrarRol" asp-route-id="@rol.Usuario_Id">Administrar Rol</a>
-                        <a class="btn btn-danger text-white" asp-action="Borrar" asp-route-id="@rol.Usuario_Id"
-                           onclick="return confirm('Esta seguro de que quiere borrar el usuario?')'">Borrar</a>
-                    </td>
-                </tr>
-            }
-        </table>
-    }
-    else
-    {
-        <p>No hay Usuarios</p>
-    }
-</div>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario[0].Nombre_Usuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario[0].Correo_Electronico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario[0].Contrasena)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Usuario) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre_Usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Correo_Electronico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contrasena)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Usuario_Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Usuario_Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Usuario_Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

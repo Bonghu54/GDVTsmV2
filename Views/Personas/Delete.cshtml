@@ -1,45 +1,55 @@
-﻿@model GDVTsmV3.Models.Persona
+﻿@page
+@model GDVTsmV3.Views.Personas.DeleteModel
 
 @{
-    ViewData["Title"] = "Delete";
+    Layout = null;
 }
 
-<h1>Delete</h1>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Persona</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Persona.Nombre)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nombre)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Persona.Nombre)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Apellido)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Persona.Apellido)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Apellido)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Persona.Apellido)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Ci)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Persona.Ci)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Ci)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Persona.Ci)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Fecha_Nac)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Persona.Fecha_Nac)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Fecha_Nac)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Persona.Fecha_Nac)
         </dd>
     </dl>
     
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Persona_Id" />
+    <form method="post">
+        <input type="hidden" asp-for="Persona.Persona_Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <a asp-page="./Index">Back to List</a>
     </form>
 </div>
+</body>
+</html>

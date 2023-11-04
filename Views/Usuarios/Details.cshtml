@@ -1,36 +1,46 @@
-﻿@model GDVTsmV3.Models.Usuario
+﻿@page
+@model GDVTsmV3.Views.Usuarios.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    Layout = null;
 }
 
-<h1>Details</h1>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
 
 <div>
     <h4>Usuario</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre_Usuario)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Usuario.Nombre_Usuario)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nombre_Usuario)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Usuario.Nombre_Usuario)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Correo_Electronico)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Usuario.Correo_Electronico)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Correo_Electronico)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Usuario.Correo_Electronico)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Contrasena)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Usuario.Contrasena)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Contrasena)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Usuario.Contrasena)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Usuario_Id">Edit</a> |
-    <a asp-action="Index">Volver a la Lista</a>
+    <a asp-page="./Edit" asp-route-id="@Model.Usuario?.Usuario_Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
 </div>
+</body>
+</html>

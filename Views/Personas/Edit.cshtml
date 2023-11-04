@@ -1,37 +1,45 @@
-﻿@model GDVTsmV3.Models.Persona
+﻿@page
+@model GDVTsmV3.Views.Personas.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    Layout = null;
 }
 
-<h1>Edit</h1>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
 
 <h4>Persona</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Persona_Id" />
+            <input type="hidden" asp-for="Persona.Persona_Id" />
             <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
+                <label asp-for="Persona.Nombre" class="control-label"></label>
+                <input asp-for="Persona.Nombre" class="form-control" />
+                <span asp-validation-for="Persona.Nombre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Apellido" class="control-label"></label>
-                <input asp-for="Apellido" class="form-control" />
-                <span asp-validation-for="Apellido" class="text-danger"></span>
+                <label asp-for="Persona.Apellido" class="control-label"></label>
+                <input asp-for="Persona.Apellido" class="form-control" />
+                <span asp-validation-for="Persona.Apellido" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Ci" class="control-label"></label>
-                <input asp-for="Ci" class="form-control" />
-                <span asp-validation-for="Ci" class="text-danger"></span>
+                <label asp-for="Persona.Ci" class="control-label"></label>
+                <input asp-for="Persona.Ci" class="form-control" />
+                <span asp-validation-for="Persona.Ci" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Fecha_Nac" class="control-label">Fecha de Nacimiento</label>
-                <input asp-for="Fecha_Nac" class="form-control" />
-                <span asp-validation-for="Fecha_Nac" class="text-danger"></span>
+                <label asp-for="Persona.Fecha_Nac" class="control-label"></label>
+                <input asp-for="Persona.Fecha_Nac" class="form-control" />
+                <span asp-validation-for="Persona.Fecha_Nac" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
@@ -40,11 +48,9 @@
     </div>
 </div>
 
-<br />
-<div class="btn btn-warning text-white">
-    <a asp-action="Index" style="text-decoration:none">Volver a la Lista </a>
+<div>
+    <a asp-page="./Index">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+</body>
+</html>

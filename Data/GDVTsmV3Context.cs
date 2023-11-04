@@ -18,10 +18,7 @@ namespace GDVTsmV3.Data
         {
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Asignacion_Roles>().HasKey(ae => new { ae.Usuario_Id, ae.Rol_Id });
-        }
+        
         public DbSet<GDVTsmV3.Models.Empleado> Empleado { get; set; } = default!;
 
         public DbSet<GDVTsmV3.Models.Persona>? Persona { get; set; }
@@ -30,7 +27,6 @@ namespace GDVTsmV3.Data
 
         public DbSet<GDVTsmV3.Models.Usuario>? Usuario { get; set; }
 
-        public DbSet<GDVTsmV3.Models.Asignacion_Roles>? Asignacion_Roles { get; set; }
 
         
     }
