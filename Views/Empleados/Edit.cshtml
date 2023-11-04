@@ -1,0 +1,46 @@
+﻿@page
+@model GDVTsmV3.Views.Empleados.EditModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+
+<h4>Empleado</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Empleado.Empleado_Id" />
+            <div class="form-group">
+                <label asp-for="Empleado.Persona_Id" class="control-label"></label>
+                <select asp-for="Empleado.Persona_Id" class="form-control" asp-items="ViewBag.Persona_Id"></select>
+                <span asp-validation-for="Empleado.Persona_Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Empleado.Usuario_Id" class="control-label"></label>
+                <select asp-for="Empleado.Usuario_Id" class="form-control" asp-items="ViewBag.Usuario_Id"></select>
+                <span asp-validation-for="Empleado.Usuario_Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+</body>
+</html>

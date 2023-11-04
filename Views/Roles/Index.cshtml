@@ -1,0 +1,50 @@
+﻿@page
+@model GDVTsmV3.Views.Roles.IndexModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Rol[0].Nombre_Rol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rol[0].Descripcion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Rol) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre_Rol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Rol_Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Rol_Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Rol_Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

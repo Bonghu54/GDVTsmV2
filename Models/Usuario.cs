@@ -15,8 +15,7 @@ namespace GDVTsmV3.Models
         public string Contrasena { get; set;}
         public Empleado Empleado { get; set; }
 
-        public ICollection<Asignacion_Roles> Asignacion_Roles { get; set; }
-
+        public Rol Rol { get; set; }
 
     }
 }
