@@ -1,0 +1,71 @@
+﻿@model GDVTsmV3.ViewModels.UsuarioRoles
+
+@{
+    ViewData["Title"] = "Administrar Rol";
+    
+}
+<br />
+<h3 class="text-center">Administrar Roles para el usuario</h3>
+<div class="row">
+    <form method="post" asp-action="AdministrarRol">
+        <input type="hidden" asp-for="Usuario.Usuario_Id" />
+        <input type="hidden" asp-for="Asignacion_Roles.Usuario_Id" />
+        <div class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-12 mt-4">
+                <div class="row">
+                    <div class="col-4">
+                        <label asp-for="Usuario.Nombre_Usuario">Nombre Usuario</label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Usuario.Nombre_Usuario" class="form-control" />
+                        <span asp-validation-for="Usuario.Nombre_Usuario" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <label asp-for="ListaRoles">Roles</label>
+                    </div>
+                    <div class="col-8">
+                        @Html.DropDownListFor(u=>u.Asignacion_Roles.Rol_Id, Model.ListaRoles, "--Seleccionar Roles",
+                        new {@class="form-control"})
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-3">
+                <br />
+                <div class="btn btn-warning text-white">
+                    <a asp-action="Index" style="text-decoration:none">Volver a la Lista </a>
+                </div>
+            </div>
+            <div class="col-5 offset-4">
+                <button type="submit" class="btn btn-primary form-control">Asociar Rol a Usuario</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="row">
+    <div class="col-12">
+        <form method="post" action="EliminarRoles">
+            <input type="hidden" asp-for="@Model.Usuario.Usuario_Id" />
+            <div class="row text-right">
+                <div class="col-12 text-right h4 text-primary">
+                    Roles asociados a este Usuario
+                </div>
+            </div>
+            @foreach(var item in Model.ListaDeAsignacioDeRoles)
+            {
+                <div class="row pb-2">
+                    <div class="col-8 text-right" style="font-size:24px;">
+                        @item.Rol.Nombre_Rol
+                    </div>
+                    <div class="col-4">
+                        <button asp-action="EliminarRoles" type="submit" class="btn btn-danger form-control" asp-route-idRol="@item.Rol_Id">Eliminar Rol</button>
+                    </div>
+                </div>
+            }
+        </form>
+    </div>
+</div>

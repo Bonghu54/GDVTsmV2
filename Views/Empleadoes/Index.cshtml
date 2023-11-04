@@ -1,0 +1,42 @@
+﻿@model IEnumerable<GDVTsmV3.Models.Empleado>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-4">
+        <h3>Lista de Empleados</h3>
+    </div>
+    <div class="col-3">
+        <a asp-action="Create" class="btn btn-primary form-control">Crear Empleado</a>
+    </div>
+</div>
+<div>
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-striped border">
+            <tr>
+                <th> Datos Personales</th>
+                <th>Usuario</th>
+                <th></th>
+            </tr>
+            @foreach (var rol in Model)
+            {
+                <tr>
+                    <td>@rol.Persona.Nombre @rol.Persona.Apellido</td>
+                    <td>@rol.Usuario.Nombre_Usuario</td>
+                    <td>
+                        <a class="btn btn-primary text-white" asp-action="Edit" asp-route-id="@rol.Empleado_Id">Editar</a>
+                        <a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@rol.Empleado_Id"
+                           onclick="return confirm('Esta seguro de que quiere borrar el empleado?')'">Borrar</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p>No hay Roles</p>
+    }
+</div>

@@ -1,0 +1,53 @@
+﻿@model GDVTsmV3.Models.Usuario
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br />
+<h3 class="text-center">Crear Nuevo Usuario</h3>
+<form method="post" asp-action="Create">
+    <div class="row">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-12 mt-4">
+            <div class="row">
+                <div class="col-4">
+                    <label asp-for="Nombre_Usuario"> Nombre Usuario</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Nombre_Usuario" class="form-control" />
+                    <span asp-validation-for="Nombre_Usuario" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label asp-for="Correo_Electronico">Correo Electronico</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Correo_Electronico" class="form-control" />
+                    <span asp-validation-for="Correo_Electronico" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label asp-for="Contrasena">Contraseña</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Contrasena" class="form-control" />
+                    <span asp-validation-for="Contrasena" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-3">
+            <br />
+            <div class="btn btn-warning text-white">
+                <a asp-action="Index" style="text-decoration:none">Volver a la Lista </a>
+            </div>
+        </div>
+        <div class="col-5 offset-4">
+            <button type="submit" class="btn btn-primary form-control">Crear</button>
+        </div>
+    </div>
+</form>

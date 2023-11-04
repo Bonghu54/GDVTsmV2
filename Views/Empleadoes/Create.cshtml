@@ -1,0 +1,45 @@
+﻿@model GDVTsmV3.Models.Empleado
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br />
+<h3 class="text-center">Crear Nuevo Empleado</h3>
+<form method="post" asp-action="Create">
+    <div class="row">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-12 mt-4">
+            <div class="row">
+                <div class="col-4">
+                    <label asp-for="Persona_Id"> Datos Persona</label>
+                </div>
+                <div class="col-8">
+                    <select asp-for="Persona_Id" class="form-control" asp-items="ViewBag.Persona_Id"></select>
+                    <span asp-validation-for="Persona_Id" class="text-danger"></span>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label asp-for="Usuario_Id"> Usuario</label>
+                </div>
+                <div class="col-8">
+                    <select asp-for="Usuario_Id" class="form-control" asp-items="ViewBag.Usuario_Id"></select>
+                    <span asp-validation-for="Usuario_Id" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-3">
+            <br />
+            <div class="btn btn-warning text-white">
+                <a asp-action="Index" style="text-decoration:none">Volver a la Lista </a>
+            </div>
+        </div>
+        <div class="col-5 offset-4">
+            <button type="submit" class="btn btn-primary form-control">Crear Empleado</button>
+        </div>
+    </div>
+</form>
